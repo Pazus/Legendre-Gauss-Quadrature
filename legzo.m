@@ -5,12 +5,14 @@ function [x,w]=legzo(n, a, b)
 %                 weighting coefficients for Gauss-Legendre
 %                 integration
 %       Input :   n    --- Order of the Legendre polynomial
-%       Output:   X(n) --- Zeros of the Legendre polynomial
-%                 W(n) --- Corresponding weighting coefficients
+%                 a    --- Lower boundary (optional)
+%                 b    --- Upper boundary (optional)
+%       Output:   x(n) --- Zeros of the Legendre polynomial
+%                 w(n) --- Corresponding weighting coefficients
 %       =========================================================
 if nargin == 1
     a = -1;
-    b = 1;
+    b =  1;
 end;
 x = zeros(1, n);
 w = zeros(1, n);
@@ -37,6 +39,7 @@ for ii=1:m
     w(ii) = h/((1-z^2)*(pp^2)); % Build up the weights.
     w(n+1-ii) = w(ii);
 end
+
 if a ~= -1 && b ~= 1
-    x = (x+1)*(h/2)+a;
+    x = (x+1)*(h/2) + a;
 end
