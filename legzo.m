@@ -40,6 +40,6 @@ for ii=1:m
     w(n+1-ii) = w(ii);
 end
 
-if a ~= -1 && b ~= 1
+if a ~= -1 || b ~= 1
     x = (x+1)*(h/2) + a;
 end
